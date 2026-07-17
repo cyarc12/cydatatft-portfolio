@@ -860,8 +860,9 @@ section {
   display: none;
 }
 
-/* === 5. 调试案例 === */
+/* === 5. 调试案例（默认隐藏，仅移动端显示） === */
 .debug-cases {
+  display: none;
   background: var(--bg-primary);
 }
 
@@ -1479,7 +1480,7 @@ section {
   .hero { background: #0e0e16; }
   .stats { background: #151421; }
   .features { background: #0e0e16; }
-  .debug-cases { background: #151421; }
+  .debug-cases { background: #151421; display: block; }
   .workflow { background: #0e0e16; }
   .timeline { background: #151421; }
   .download { background: #0e0e16; }
@@ -1606,12 +1607,17 @@ section {
     flex-direction: row;
     align-items: center;
     gap: 12px;
-    margin-bottom: 0;
+    margin-bottom: 24px;
   }
 
   .hero-actions .btn {
     width: auto;
     max-width: none;
+  }
+
+  .hero-meta {
+    justify-content: flex-start;
+    gap: 20px;
   }
 
   .hero-scroll { display: none; }
@@ -1808,6 +1814,8 @@ section {
   }
 
   .workflow-arrow { display: none; }
+  .step-icon { display: none; }
+  .step-tags { display: none; }
 
   .workflow-step {
     padding: 20px 18px;
@@ -2040,6 +2048,12 @@ section {
 
   .hero-actions .btn {
     width: 100%;
+  }
+
+  .hero-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
   /* Stats */
