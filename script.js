@@ -245,12 +245,12 @@
     });
 
     // 图片淡入淡出效果
+    featureImage.classList.remove('loaded');
     featureImage.style.opacity = '0';
     
     setTimeout(() => {
       featureImage.src = data.image;
       featureImage.alt = data.title;
-      featureImage.style.opacity = '1';
       
       // 重置手机框滚动位置到顶部
       const phoneFrame = document.querySelector('.phone-frame');
@@ -309,11 +309,11 @@
 
     // 更新手机框图片
     if (mobileFeatureImage) {
+      mobileFeatureImage.classList.remove('loaded');
       mobileFeatureImage.style.opacity = '0';
       setTimeout(() => {
         mobileFeatureImage.src = data.image;
         mobileFeatureImage.alt = data.title;
-        mobileFeatureImage.style.opacity = '1';
         // 重置手机框滚动位置到顶部
         const phoneMockup = mobileFeatureImage.closest('.phone-mockup');
         if (phoneMockup) phoneMockup.scrollTop = 0;
@@ -470,6 +470,38 @@
       // 可添加下载统计逻辑
       console.log('APK 下载按钮被点击');
     });
+  }
+
+  // 图片加载完成处理
+  function handleImageLoad(img) {
+    img.classList.add('loaded');
+  }
+  function handleImageError(img) {
+    img.classList.add('loaded'); // 停止动画，保持占位背景
+  }
+
+  // 监听所有需要加载状态的图片
+  document.querySelectorAll('.phone-screen, .feature-screen, .carousel-img').forEach(img => {
+    if (img.complete) {
+      handleImageLoad(img);
+    } else {
+      img.addEventListener('load', () => handleImageLoad(img));
+      img.addEventListener('error', () => handleImageError(img));
+    }
+  });
+
+  // 移动端切换功能时，新图片也监听加载
+  const mobileImg = document.getElementById('mobileFeatureImage');
+  if (mobileImg) {
+    mobileImg.addEventListener('load', () => handleImageLoad(mobileImg));
+    mobileImg.addEventListener('error', () => handleImageError(mobileImg));
+  }
+
+  // 桌面端功能图片也监听加载
+  const desktopFeatureImg = document.getElementById('featureImage');
+  if (desktopFeatureImg) {
+    desktopFeatureImg.addEventListener('load', () => handleImageLoad(desktopFeatureImg));
+    desktopFeatureImg.addEventListener('error', () => handleImageError(desktopFeatureImg));
   }
 
 })();

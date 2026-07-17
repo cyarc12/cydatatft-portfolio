@@ -546,8 +546,30 @@ section {
 .phone-screen {
   width: 100%;
   height: auto;
+  min-height: 400px;
   border-radius: 30px;
   display: block;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: rgba(255,255,255,0.03);
+}
+
+.phone-screen.loaded {
+  opacity: 1;
+  background: transparent;
+  min-height: 0;
+}
+
+/* 图片加载占位动画 */
+.phone-screen:not(.loaded),
+.feature-screen:not(.loaded),
+.carousel-img:not(.loaded) {
+  animation: img-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes img-pulse {
+  0%, 100% { background-color: rgba(255,255,255,0.02); }
+  50% { background-color: rgba(255,255,255,0.06); }
 }
 
 .phone-shine {
@@ -786,7 +808,14 @@ section {
   height: auto;
   border-radius: 30px;
   display: block;
-  transition: opacity var(--transition-normal);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: rgba(255,255,255,0.03);
+}
+
+.feature-screen.loaded {
+  opacity: 1;
+  background: transparent;
 }
 
 .feature-info {
@@ -846,6 +875,17 @@ section {
 /* === 截图轮播（mobile only，默认隐藏） === */
 .screenshot-carousel {
   display: none;
+}
+
+.carousel-img {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: rgba(255,255,255,0.03);
+}
+
+.carousel-img.loaded {
+  opacity: 1;
+  background: transparent;
 }
 
 /* === 移动端固定下载栏（默认隐藏） === */
