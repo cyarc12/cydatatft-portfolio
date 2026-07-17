@@ -286,14 +286,17 @@
   const carouselTrack = document.getElementById('carouselTrack');
   const carouselDots = document.querySelectorAll('.carousel-dot');
   const carouselSlides = document.querySelectorAll('.carousel-slide');
+  const carouselCounter = document.getElementById('carouselCounter');
   let currentSlide = 0;
   const totalSlides = carouselSlides.length;
-  const slideTabMap = ['homepage', 'teamRec', 'heroDetail', 'teamDetail', 'equipTier', 'starGod'];
 
   function updateCarouselDots(index) {
     carouselDots.forEach((dot, i) => {
       dot.classList.toggle('active', i === index);
     });
+    if (carouselCounter) {
+      carouselCounter.textContent = (index + 1) + ' / ' + totalSlides;
+    }
   }
 
   function scrollToSlide(index) {
@@ -336,17 +339,6 @@
   carouselDots.forEach((dot, i) => {
     dot.addEventListener('click', () => scrollToSlide(i));
   });
-
-  // 标签切换时同步轮播
-  const origSwitchFeature = switchFeature;
-  switchFeature = function (tabName) {
-    origSwitchFeature(tabName);
-    // 同步轮播
-    const slideIndex = slideTabMap.indexOf(tabName);
-    if (slideIndex >= 0) {
-      scrollToSlide(slideIndex);
-    }
-  };
 
   // === 8. 移动端底部下载栏可见性 ===
   const mobileDownloadBar = document.getElementById('mobileDownloadBar');

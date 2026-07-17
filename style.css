@@ -860,7 +860,93 @@ section {
   display: none;
 }
 
-/* === 5. Vibe Coding开发流程 === */
+/* === 5. 调试案例 === */
+.debug-cases {
+  background: var(--bg-primary);
+}
+
+.cases-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.case-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.case-card summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px;
+  cursor: pointer;
+  list-style: none;
+  transition: background var(--transition-fast);
+}
+
+.case-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.case-card summary:hover {
+  background: var(--bg-card-hover);
+}
+
+.case-num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-purple);
+  min-width: 32px;
+  flex-shrink: 0;
+}
+
+.case-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.case-card summary small {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.case-content {
+  padding: 0 28px 24px;
+  border-top: 1px solid var(--border-color);
+  margin: 0 28px;
+}
+
+.case-content p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.case-content p:last-child {
+  margin-bottom: 0;
+}
+
+.case-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* === 移动端时间线（默认隐藏） === */
+.timeline-mobile {
+  display: none;
+}
+
+/* === 6. Vibe Coding开发流程 === */
 .workflow {
   background: var(--bg-secondary);
 }
@@ -1378,33 +1464,54 @@ section {
 
 /* ============================================
    移动端适配 (max-width: 768px)
-   信息重组，不只是缩小宽度
+   第二轮：信息重组 + 字号提升 + 交替背景 + 折叠案例
    ============================================ */
 @media (max-width: 768px) {
-  /* === 全局 === */
+  /* === 交替模块背景 === */
+  section:nth-of-type(odd) {
+    background: #0e0e16;
+  }
+
+  section:nth-of-type(even) {
+    background: #151421;
+  }
+
+  .hero { background: #0e0e16; }
+  .stats { background: #151421; }
+  .features { background: #0e0e16; }
+  .debug-cases { background: #151421; }
+  .workflow { background: #0e0e16; }
+  .timeline { background: #151421; }
+  .download { background: #0e0e16; }
+  .about { background: #151421; }
+
+  /* === 全局字号提升 === */
   body {
-    font-size: 15px;
+    font-size: 16px;
     overflow-x: hidden;
     padding-bottom: 100px;
   }
 
   section {
-    padding: 56px 20px;
+    padding: 64px 20px;
   }
 
   .section-header {
-    margin-bottom: 36px;
+    margin-bottom: 32px;
+    text-align: center;
   }
 
   .section-label {
-    font-size: 12px;
-    padding: 5px 14px;
+    font-size: 10px;
+    padding: 4px 10px;
+    letter-spacing: 0.08em;
   }
 
-  h1 { font-size: 32px; line-height: 1.15; }
-  h2 { font-size: 25px; line-height: 1.25; }
-  h3 { font-size: 17px; }
-  p { font-size: 14px; line-height: 1.7; }
+  h1 { font-size: 30px; line-height: 1.2; }
+  h2 { font-size: 24px; line-height: 1.3; }
+  h3 { font-size: 18px; }
+  p { font-size: 15px; line-height: 1.75; }
+  small, .tag { font-size: 12px; }
 
   .section-title {
     font-size: 24px;
@@ -1412,6 +1519,7 @@ section {
 
   .section-desc {
     font-size: 14px;
+    line-height: 1.6;
   }
 
   button, .btn {
@@ -1452,7 +1560,7 @@ section {
     display: flex;
   }
 
-  /* === Hero: 首屏重排，内容在前图片在后 === */
+  /* === Hero: 标题2行 + 内容左对齐 === */
   .hero {
     min-height: auto;
     padding: calc(var(--nav-height) + 32px) 20px 48px;
@@ -1461,15 +1569,17 @@ section {
   .hero-container {
     grid-template-columns: 1fr;
     gap: 32px;
-    text-align: center;
   }
 
   .hero-content {
     order: 0;
+    text-align: left;
   }
 
   .hero-mockup {
     order: 1;
+    display: flex;
+    justify-content: center;
   }
 
   .hero-tag {
@@ -1478,39 +1588,30 @@ section {
   }
 
   .hero-title {
-    font-size: 28px;
-    line-height: 1.18;
+    font-size: 30px;
+    line-height: 1.2;
     letter-spacing: -0.02em;
     margin-bottom: 14px;
   }
 
   .hero-subtitle {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.7;
-    margin-left: auto;
-    margin-right: auto;
     max-width: 480px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .hero-actions {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 
   .hero-actions .btn {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .hero-meta {
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .hero-meta .meta-item {
-    font-size: 13px;
+    width: auto;
+    max-width: none;
   }
 
   .hero-scroll { display: none; }
@@ -1527,7 +1628,7 @@ section {
     height: 540px;
   }
 
-  /* === 成果: 2×2 网格 === */
+  /* === 成果: 2×2 网格 + 左对齐 === */
   .stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
@@ -1536,6 +1637,7 @@ section {
   .stat-card {
     min-height: 132px;
     padding: 18px 14px;
+    text-align: left;
   }
 
   .stat-icon {
@@ -1551,12 +1653,11 @@ section {
   }
 
   .stat-desc {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.5;
   }
 
-  /* === 功能展示 === */
-  /* 桌面版 tab+info+phone 保留，移动端显示截图轮播 */
+  /* === 功能展示: 轮播优化 === */
   .feature-tabs {
     gap: 6px;
     flex-wrap: nowrap;
@@ -1593,8 +1694,8 @@ section {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    gap: 16px;
-    padding: 0 20px;
+    gap: 0;
+    padding: 0;
   }
 
   .carousel-track::-webkit-scrollbar {
@@ -1602,7 +1703,7 @@ section {
   }
 
   .carousel-slide {
-    flex: 0 0 82%;
+    flex: 0 0 88%;
     scroll-snap-align: center;
     display: flex;
     flex-direction: column;
@@ -1614,14 +1715,16 @@ section {
 
   .carousel-img {
     width: 100%;
-    height: auto;
+    max-height: 620px;
+    object-fit: cover;
+    object-position: top;
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     pointer-events: none;
   }
 
   .carousel-label {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-secondary);
     font-weight: 500;
   }
@@ -1630,7 +1733,7 @@ section {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: 20px;
+    margin-top: 16px;
     padding: 0 20px;
   }
 
@@ -1649,85 +1752,128 @@ section {
     border-radius: 4px;
   }
 
-  /* === 开发流程: 单列，隐藏标签 === */
+  .carousel-counter {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin-top: 12px;
+  }
+
+  /* === 调试案例: 折叠列表 === */
+  .case-card {
+    margin-bottom: 12px;
+    border-radius: var(--radius-md);
+  }
+
+  .case-card summary {
+    padding: 18px 16px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .case-num {
+    font-size: 18px;
+    min-width: 26px;
+  }
+
+  .case-title {
+    font-size: 15px;
+    flex: 1;
+  }
+
+  .case-card summary small {
+    font-size: 12px;
+    margin-left: 0;
+    width: 100%;
+    padding-left: 36px;
+    color: var(--text-tertiary);
+  }
+
+  .case-content {
+    padding: 0 16px 18px;
+    margin: 0 16px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 14px;
+  }
+
+  .case-content p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* === 开发流程: 单列 + 左对齐 === */
   .workflow-steps {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
 
   .workflow-arrow { display: none; }
 
   .workflow-step {
-    padding: 24px 20px;
+    padding: 20px 18px;
+    text-align: left;
   }
 
   .workflow-step h3 {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .workflow-step p {
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .step-number {
-    font-size: 28px;
+    font-size: 24px;
+    top: 12px;
+    right: 12px;
   }
 
-  .step-tags {
-    gap: 6px;
-  }
-
-  .step-tags span {
-    font-size: 11px;
-    padding: 4px 10px;
-  }
-
-  /* === 时间线: 压缩为4阶段 === */
-  .timeline-line {
-    left: 24px;
-  }
-
-  .timeline-dot {
-    left: 24px;
-  }
-
-  .timeline-content {
-    width: calc(100% - 60px);
-    margin-left: 60px !important;
-    margin-right: 0 !important;
-    text-align: left !important;
-    padding: 20px;
-  }
-
-  .timeline-content li {
-    padding-left: 20px !important;
-    padding-right: 0 !important;
-    font-size: 13px;
-  }
-
-  .timeline-content li::before {
-    left: 0 !important;
-    right: auto !important;
-  }
-
-  .timeline-version {
-    font-size: 18px;
-  }
-
-  .timeline-date {
-    font-size: 12px;
-  }
-
-  .timeline-content h4 {
-    font-size: 16px;
-  }
-
-  /* 手机端隐藏 V1 V2 V3，只留 V4 V5 */
-  .timeline-item:nth-child(1),
-  .timeline-item:nth-child(2),
-  .timeline-item:nth-child(3) {
+  /* === 时间线: 隐藏桌面版，显示移动版 === */
+  .timeline-container {
     display: none;
+  }
+
+  .timeline-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .timeline-mobile-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    text-align: left;
+  }
+
+  .tm-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-purple);
+    min-width: 36px;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+
+  .tm-content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+  }
+
+  .tm-content p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
   }
 
   /* === 下载区 === */
@@ -1738,7 +1884,7 @@ section {
   }
 
   .download-mockup {
-    order: -1;
+    display: none;
   }
 
   .download-title {
@@ -1755,12 +1901,29 @@ section {
   }
 
   .download-hint {
-    font-size: 13px;
+    font-size: 12px;
   }
 
-  /* === 联系方式 === */
+  /* === 联系方式: 左对齐 === */
+  .about-title {
+    text-align: left;
+  }
+
+  .about-desc {
+    text-align: left;
+  }
+
   .contact-card {
     padding: 24px 20px;
+    text-align: left;
+  }
+
+  .contact-card h3 {
+    text-align: left;
+  }
+
+  .contact-desc {
+    text-align: left;
   }
 
   .contact-item {
@@ -1850,7 +2013,7 @@ section {
   }
 
   .section-header {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
   .section-title {
@@ -1863,21 +2026,20 @@ section {
   }
 
   .hero-title {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .hero-subtitle {
-    font-size: 13px;
+    font-size: 14px;
   }
 
-  .hero-meta {
+  .hero-actions {
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    align-items: stretch;
   }
 
   .hero-actions .btn {
-    max-width: 260px;
+    width: 100%;
   }
 
   /* Stats */
@@ -1891,7 +2053,7 @@ section {
   }
 
   .stat-desc {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .stat-icon {
@@ -1901,7 +2063,7 @@ section {
     margin-bottom: 10px;
   }
 
-  /* Phone mockup - 更小 */
+  /* Phone mockup */
   .phone-mockup {
     width: 220px;
     height: 460px;
@@ -1927,14 +2089,46 @@ section {
 
   /* Carousel */
   .carousel-slide {
-    flex: 0 0 85%;
+    flex: 0 0 88%;
   }
 
   .carousel-img {
     border-radius: 16px;
+    max-height: 480px;
   }
 
   .carousel-label {
+    font-size: 13px;
+  }
+
+  /* Debug cases */
+  .case-card summary {
+    padding: 16px 14px;
+  }
+
+  .case-num {
+    font-size: 16px;
+  }
+
+  .case-title {
+    font-size: 14px;
+  }
+
+  .case-content p {
+    font-size: 12px;
+  }
+
+  /* Timeline mobile */
+  .tm-num {
+    font-size: 22px;
+    min-width: 30px;
+  }
+
+  .tm-content h4 {
+    font-size: 15px;
+  }
+
+  .tm-content p {
     font-size: 12px;
   }
 

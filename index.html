@@ -45,10 +45,10 @@
           AI 辅助开发 · 移动端数据工具
         </div>
         <h1 class="hero-title">
-          从分散资料到<span class="text-accent">可安装的 Android 查询工具</span>
+          从游戏资料需求<br>到<span class="text-accent">可安装的 Android 应用</span>
         </h1>
         <p class="hero-subtitle">
-          基于《金铲铲之战》的资料查询场景，使用 AI 编程工具辅助完成需求拆解、数据清洗、结构化建库、移动端页面开发、实机调试和 APK 发布，将分散网页与表格资料转化为可安装、可检索、可持续迭代的 Android 应用。
+          通过 Vibe Coding 完成需求拆解、数据处理、移动端适配、问题调试与 APK 发布。
         </p>
         <div class="hero-actions">
           <a href="#download" class="btn btn-primary">
@@ -60,22 +60,8 @@
             </svg>
           </a>
           <a href="#workflow" class="btn btn-secondary">
-            查看项目过程
+            查看项目
           </a>
-        </div>
-        <div class="hero-meta">
-          <div class="meta-item">
-            <span class="meta-icon">📱</span>
-            <span>Android APK</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-icon">📊</span>
-            <span>结构化数据</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-icon">🔄</span>
-            <span>持续迭代</span>
-          </div>
         </div>
       </div>
       <div class="hero-mockup reveal">
@@ -212,28 +198,20 @@
         <div class="screenshot-carousel" id="screenshotCarousel">
           <div class="carousel-track" id="carouselTrack">
             <div class="carousel-slide">
-              <img src="assets/screenshot-homepage.jpg" alt="应用主页" class="carousel-img">
-              <span class="carousel-label">应用主页</span>
-            </div>
-            <div class="carousel-slide">
-              <img src="assets/screenshot-team-rec.jpg" alt="阵容推荐" class="carousel-img">
-              <span class="carousel-label">阵容推荐</span>
-            </div>
-            <div class="carousel-slide">
-              <img src="assets/screenshot-hero-detail.jpg" alt="英雄详情" class="carousel-img">
-              <span class="carousel-label">英雄详情</span>
-            </div>
-            <div class="carousel-slide">
-              <img src="assets/screenshot-team-detail.jpg" alt="阵容详情" class="carousel-img">
-              <span class="carousel-label">阵容详情</span>
+              <img src="assets/screenshot-homepage.jpg" alt="英雄查询" class="carousel-img">
+              <span class="carousel-label">英雄查询</span>
             </div>
             <div class="carousel-slide">
               <img src="assets/screenshot-equip-tier.jpg" alt="装备评级" class="carousel-img">
               <span class="carousel-label">装备评级</span>
             </div>
             <div class="carousel-slide">
-              <img src="assets/screenshot-star-god.jpg" alt="其他信息" class="carousel-img">
-              <span class="carousel-label">其他信息</span>
+              <img src="assets/screenshot-team-detail.jpg" alt="阵容详情" class="carousel-img">
+              <span class="carousel-label">阵容详情</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/screenshot-hero-detail.jpg" alt="赛季切换" class="carousel-img">
+              <span class="carousel-label">赛季切换</span>
             </div>
           </div>
           <div class="carousel-dots" id="carouselDots">
@@ -241,19 +219,79 @@
             <span class="carousel-dot"></span>
             <span class="carousel-dot"></span>
             <span class="carousel-dot"></span>
-            <span class="carousel-dot"></span>
-            <span class="carousel-dot"></span>
           </div>
+          <div class="carousel-counter" id="carouselCounter">1 / 4</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. AI辅助开发流程 -->
+  <!-- 5. 调试案例 -->
+  <section class="debug-cases" id="debug">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">调试案例</span>
+        <h2 class="section-title">解决过<span class="text-accent">真实问题</span></h2>
+        <p class="section-desc">Vibe Coding 的含金量在于调试迭代</p>
+      </div>
+      <div class="cases-list">
+        <details class="case-card reveal">
+          <summary>
+            <span class="case-num">01</span>
+            <span class="case-title">多赛季数据隔离</span>
+            <small>解决S16/S17同名角色资料串联</small>
+          </summary>
+          <div class="case-content">
+            <p><strong>问题：</strong>不同赛季的同名角色（如S16和S17的"亚索"）共用同一套数据源，属性、羁绊和推荐装备出现串用。</p>
+            <p><strong>处理：</strong>通过AI协作识别数据模型中的赛季字段，建立"赛季+角色标识"的复合索引，每个赛季独立存储和查询。</p>
+            <p><strong>结果：</strong>S16和S17数据完全隔离，切换赛季后所有模块自动加载对应数据。</p>
+          </div>
+        </details>
+        <details class="case-card reveal">
+          <summary>
+            <span class="case-num">02</span>
+            <span class="case-title">装备别名与资源映射</span>
+            <small>统一正式名称、俗称和图标路径</small>
+          </summary>
+          <div class="case-content">
+            <p><strong>问题：</strong>装备在资料中有多种名称（正式名、俗称、简称），且图标资源文件命名不统一，导致搜索和展示频繁出错。</p>
+            <p><strong>处理：</strong>与AI协作建立一个别名映射表，将每个装备的正式名称、俗称、简称和图标路径一一对应，并在数据加载时进行统一解析。</p>
+            <p><strong>结果：</strong>用户输入任何名称变体都能正确匹配，装备图标和评级数据准确展示。</p>
+          </div>
+        </details>
+        <details class="case-card reveal">
+          <summary>
+            <span class="case-num">03</span>
+            <span class="case-title">搜索优先级优化</span>
+            <small>提高精确名称和别名命中顺序</small>
+          </summary>
+          <div class="case-content">
+            <p><strong>问题：</strong>搜索"亚索"时，部分别名匹配结果排在精确名称之前，导致最相关的英雄没有出现在首位。</p>
+            <p><strong>处理：</strong>通过AI分析搜索逻辑，将精确名称匹配设为最高优先级，别名匹配和模糊匹配分层排序，并添加搜索权重字段。</p>
+            <p><strong>结果：</strong>精确搜索命中率提升，搜索结果按相关性排序，用户输入后首个结果即为目标内容。</p>
+          </div>
+        </details>
+        <details class="case-card reveal">
+          <summary>
+            <span class="case-num">04</span>
+            <span class="case-title">移动端适配</span>
+            <small>解决换行、溢出和安全区问题</small>
+          </summary>
+          <div class="case-content">
+            <p><strong>问题：</strong>标签文字过长导致换行错位，卡片内容溢出容器，底部导航栏被iPhone安全区遮挡。</p>
+            <p><strong>处理：</strong>通过实机截图→AI分析→样式修正的循环迭代，针对性调整文字截断、容器尺寸和safe-area适配。</p>
+            <p><strong>结果：</strong>所有标签单行显示不换行，卡片内容完整不溢出，底部导航适配iPhone刘海屏安全区。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. AI辅助开发流程 -->
   <section class="workflow" id="workflow">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-label">开发流程</span>
+        <span class="section-label">VIBE CODING</span>
         <h2 class="section-title">AI 辅助开发，<span class="text-accent">从原型到可发布 APK</span></h2>
         <p class="section-desc">通过需求拆解、数据建模、实机调试和持续迭代，完成移动端资料工具的产品化落地</p>
       </div>
@@ -261,74 +299,45 @@
       <div class="workflow-steps">
         <div class="workflow-step reveal">
           <div class="step-number">01</div>
-          <div class="step-icon">🎯</div>
           <h3>需求拆解</h3>
-          <p>从"资料难查、信息分散"的使用痛点出发，拆解出资料检索、分类筛选、详情展示、版本切换和移动端适配等核心模块，明确优先级与迭代方向。</p>
-          <div class="step-tags">
-            <span>需求分析</span>
-            <span>功能规划</span>
-            <span>迭代优先级</span>
-          </div>
+          <p>从"资料难查、信息分散"的痛点出发，拆解出资料检索、分类筛选、详情展示、版本切换和移动端适配等核心模块。</p>
         </div>
         <div class="workflow-step reveal">
           <div class="step-number">02</div>
-          <div class="step-icon">📊</div>
           <h3>数据建模</h3>
-          <p>整理来自网页与表格的资料，进行清洗、字段统一、图标匹配和别名映射，建立可本地查询的结构化数据，并处理不同版本之间的数据隔离。</p>
-          <div class="step-tags">
-            <span>数据清洗</span>
-            <span>结构化建库</span>
-            <span>别名映射</span>
-          </div>
+          <p>清洗原始资料、统一字段、建立别名映射，处理赛季间数据隔离，构建可本地查询的结构化数据库。</p>
         </div>
         <div class="workflow-step reveal">
           <div class="step-number">03</div>
-          <div class="step-icon">🎨</div>
           <h3>页面实现</h3>
-          <p>使用 AI 编程工具辅助完成页面开发和功能实现，搭建首页、检索、详情、评级、阵容等核心页面，并根据移动端使用场景设计信息层级。</p>
-          <div class="step-tags">
-            <span>前端实现</span>
-            <span>信息架构</span>
-            <span>移动端布局</span>
-          </div>
+          <p>使用 AI 编程工具辅助完成首页、检索、详情、评级、阵容等核心页面开发，设计移动端信息层级。</p>
         </div>
         <div class="workflow-step reveal">
           <div class="step-number">04</div>
-          <div class="step-icon">🔍</div>
           <h3>实机调试</h3>
-          <p>通过手机实机截图持续发现并修正问题，反复优化标签换行、省略号、卡片高度、图标对齐、导航栏安全区和搜索结果排序等细节。</p>
-          <div class="step-tags">
-            <span>实机测试</span>
-            <span>UI 调优</span>
-            <span>问题定位</span>
-          </div>
+          <p>通过手机实机截图持续发现并修正问题，优化标签换行、卡片高度、图标对齐和导航栏安全区等细节。</p>
         </div>
         <div class="workflow-step reveal">
           <div class="step-number">05</div>
-          <div class="step-icon">🚀</div>
           <h3>打包发布</h3>
-          <p>完成 Android APK 打包、版本命名、发布链接整理和 GitHub Release 分发，使项目从本地原型变成可安装、可下载、可展示的作品。</p>
-          <div class="step-tags">
-            <span>APK 打包</span>
-            <span>版本管理</span>
-            <span>发布分发</span>
-          </div>
+          <p>完成 Android APK 打包、版本命名、发布链接整理和 GitHub Release 分发，使项目从原型变成可安装产品。</p>
         </div>
         <div class="workflow-arrow">→</div>
       </div>
     </div>
   </section>
 
-  <!-- 6. 项目版本迭代时间线 -->
+  <!-- 7. 项目版本迭代时间线 -->
   <section class="timeline" id="timeline">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-label">版本迭代</span>
+        <span class="section-label">PROJECT</span>
         <h2 class="section-title">持续迭代，<span class="text-accent">不断进化</span></h2>
         <p class="section-desc">从原型到发布，见证产品的成长轨迹</p>
       </div>
       
-      <div class="timeline-container">
+      <!-- 桌面端：完整V1-V5时间线 -->
+      <div class="timeline-container timeline-desktop">
         <div class="timeline-line"></div>
         
         <div class="timeline-item reveal">
@@ -392,12 +401,44 @@
           <div class="timeline-content left">
             <div class="timeline-version">V5</div>
             <div class="timeline-date">移动端体验与发布版</div>
-            <h4>实机优化与正式发布 🎉</h4>
+            <h4>实机优化与正式发布</h4>
             <ul>
               <li>标签换行、图标对齐、卡片高度持续调优</li>
               <li>底部导航安全区、搜索结果排序、详情页排版</li>
               <li>APK 打包、GitHub Release 发布与分享</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 移动端：4阶段简化时间线 -->
+      <div class="timeline-mobile">
+        <div class="timeline-mobile-item reveal">
+          <span class="tm-num">01</span>
+          <div class="tm-content">
+            <h4>原型验证</h4>
+            <p>完成基础页面与本地数据读取</p>
+          </div>
+        </div>
+        <div class="timeline-mobile-item reveal">
+          <span class="tm-num">02</span>
+          <div class="tm-content">
+            <h4>数据扩展</h4>
+            <p>从单赛季扩展至S16/S17</p>
+          </div>
+        </div>
+        <div class="timeline-mobile-item reveal">
+          <span class="tm-num">03</span>
+          <div class="tm-content">
+            <h4>体验优化</h4>
+            <p>完善搜索、映射与移动端布局</p>
+          </div>
+        </div>
+        <div class="timeline-mobile-item reveal">
+          <span class="tm-num">04</span>
+          <div class="tm-content">
+            <h4>产品发布</h4>
+            <p>完成APK打包与GitHub Release</p>
           </div>
         </div>
       </div>
@@ -468,7 +509,7 @@
   <section class="about" id="contact">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-label">联系方式</span>
+        <span class="section-label">CONTACT</span>
         <h2 class="section-title">期待与您<span class="text-accent">交流合作</span></h2>
         <p class="section-desc">共同创造有价值的产品</p>
       </div>
