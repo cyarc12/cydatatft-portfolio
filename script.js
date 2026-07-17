@@ -282,62 +282,53 @@
     });
   });
 
-  // === 7. 移动端截图轮播 ===
-  const carouselTrack = document.getElementById('carouselTrack');
-  const carouselDots = document.querySelectorAll('.carousel-dot');
-  const carouselSlides = document.querySelectorAll('.carousel-slide');
-  const carouselCounter = document.getElementById('carouselCounter');
-  let currentSlide = 0;
-  const totalSlides = carouselSlides.length;
+  // === 7. 移动端功能标签切换 ===
+  const mobileTabs = document.querySelectorAll('.mobile-feature-tab');
+  const mobileFeatureImage = document.getElementById('mobileFeatureImage');
+  const mobileFeatureTitle = document.getElementById('mobileFeatureTitle');
+  const mobileFeatureDesc = document.getElementById('mobileFeatureDesc');
+  const mobileTabsScroll = document.querySelector('.mobile-tabs-scroll');
 
-  function updateCarouselDots(index) {
-    carouselDots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
+  function switchMobileFeature(tabName) {
+    const data = featureData[tabName];
+    if (!data) return;
+
+    // 更新标签状态
+    mobileTabs.forEach(tab => {
+      tab.classList.remove('active');
+      if (tab.dataset.tab === tabName) {
+        tab.classList.add('active');
+        // 自动滚动到可见位置
+        if (mobileTabsScroll) {
+          const tabLeft = tab.offsetLeft;
+          const scrollCenter = tabLeft - (mobileTabsScroll.clientWidth / 2) + (tab.clientWidth / 2);
+          mobileTabsScroll.scrollTo({ left: Math.max(0, scrollCenter), behavior: 'smooth' });
+        }
+      }
     });
-    if (carouselCounter) {
-      carouselCounter.textContent = (index + 1) + ' / ' + totalSlides;
+
+    // 更新手机框图片
+    if (mobileFeatureImage) {
+      mobileFeatureImage.style.opacity = '0';
+      setTimeout(() => {
+        mobileFeatureImage.src = data.image;
+        mobileFeatureImage.alt = data.title;
+        mobileFeatureImage.style.opacity = '1';
+        // 重置手机框滚动位置到顶部
+        const phoneMockup = mobileFeatureImage.closest('.phone-mockup');
+        if (phoneMockup) phoneMockup.scrollTop = 0;
+      }, 150);
     }
+
+    // 更新描述
+    if (mobileFeatureTitle) mobileFeatureTitle.textContent = data.title;
+    if (mobileFeatureDesc) mobileFeatureDesc.textContent = data.desc;
   }
 
-  function scrollToSlide(index) {
-    if (index < 0 || index >= totalSlides) return;
-    currentSlide = index;
-    const slide = carouselSlides[index];
-    if (slide && carouselTrack) {
-      carouselTrack.scrollTo({
-        left: slide.offsetLeft - carouselTrack.offsetLeft - (carouselTrack.clientWidth - slide.clientWidth) / 2,
-        behavior: 'smooth'
-      });
-    }
-    updateCarouselDots(index);
-  }
-
-  // 滑动结束后更新当前slide和dot
-  let scrollEndTimer;
-  if (carouselTrack) {
-    carouselTrack.addEventListener('scroll', function () {
-      clearTimeout(scrollEndTimer);
-      scrollEndTimer = setTimeout(() => {
-        const trackCenter = carouselTrack.scrollLeft + carouselTrack.clientWidth / 2;
-        let closest = 0;
-        let closestDist = Infinity;
-        carouselSlides.forEach((slide, i) => {
-          const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
-          const dist = Math.abs(slideCenter - trackCenter);
-          if (dist < closestDist) {
-            closestDist = dist;
-            closest = i;
-          }
-        });
-        currentSlide = closest;
-        updateCarouselDots(closest);
-      }, 100);
-    }, { passive: true });
-  }
-
-  // 圆点点击跳转
-  carouselDots.forEach((dot, i) => {
-    dot.addEventListener('click', () => scrollToSlide(i));
+  mobileTabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+      switchMobileFeature(this.dataset.tab);
+    });
   });
 
   // === 8. 移动端底部下载栏可见性 ===
