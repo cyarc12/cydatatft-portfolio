@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="金铲铲之战移动端资料查询APK - AI原生开发作品集">
+  <title>cydatatft | 个人作品集</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 1. 顶部导航 -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">cydatatft</span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#hero" class="nav-link">首页</a></li>
+        <li><a href="#stats" class="nav-link">成果</a></li>
+        <li><a href="#features" class="nav-link">功能</a></li>
+        <li><a href="#workflow" class="nav-link">开发</a></li>
+        <li><a href="#timeline" class="nav-link">迭代</a></li>
+        <li><a href="#download" class="nav-link nav-download">下载</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 2. 个人介绍与项目概述首屏 -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-glow glow-1"></div>
+      <div class="hero-glow glow-2"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-content reveal">
+        <div class="hero-tag">
+          <span class="tag-dot"></span>
+          AI 辅助开发 · 移动端数据工具
+        </div>
+        <h1 class="hero-title">
+          从分散资料到<span class="text-accent">可安装的 Android 查询工具</span>
+        </h1>
+        <p class="hero-subtitle">
+          基于《金铲铲之战》的资料查询场景，使用 AI 编程工具辅助完成需求拆解、数据清洗、结构化建库、移动端页面开发、实机调试和 APK 发布，将分散网页与表格资料转化为可安装、可检索、可持续迭代的 Android 应用。
+        </p>
+        <div class="hero-actions">
+          <a href="#download" class="btn btn-primary">
+            <span>下载 APK</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </a>
+          <a href="#workflow" class="btn btn-secondary">
+            查看项目过程
+          </a>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span class="meta-icon">📱</span>
+            <span>Android APK</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">📊</span>
+            <span>结构化数据</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">🔄</span>
+            <span>持续迭代</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-mockup reveal">
+        <div class="phone-mockup">
+          <img src="assets/screenshot-homepage.jpg" alt="cydatatft 首页" class="phone-screen">
+          <div class="phone-shine"></div>
+        </div>
+        <div class="floating-card card-1">
+          <span class="card-icon">⚔</span>
+          <div>
+            <div class="card-title">英雄图鉴</div>
+            <div class="card-desc">全英雄数据查询</div>
+          </div>
+        </div>
+        <div class="floating-card card-2">
+          <span class="card-icon">🛡</span>
+          <div>
+            <div class="card-title">装备合成</div>
+            <div class="card-desc">一键查看合成路径</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>向下滚动</span>
+    </div>
+  </section>
+
+  <!-- 3. 项目成果 -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">项目成果</span>
+        <h2 class="section-title">Vibe Coding，<span class="text-accent">不止生成代码</span></h2>
+        <p class="section-desc">从需求拆解、数据校验到APK发布的完整产品实践</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-icon">🔄</div>
+          <h3 class="stat-title">赛季数据支持</h3>
+          <p class="stat-desc">S16 / S17独立切换与数据隔离</p>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">📦</div>
+          <h3 class="stat-title">核心资料模块</h3>
+          <p class="stat-desc">英雄 / 装备 / 阵容 / 符文 / 星神 / 评级</p>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">🔧</div>
+          <h3 class="stat-title">核心技术难点</h3>
+          <p class="stat-desc">移动端适配 / 数据映射 / 搜索优化 / 赛季隔离</p>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">🚀</div>
+          <h3 class="stat-title">可发布产品</h3>
+          <p class="stat-desc">完成Android APK打包与GitHub Release发布</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. APK功能与应用截图 -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">功能展示</span>
+        <h2 class="section-title">功能模块<span class="text-accent">完整覆盖</span></h2>
+        <p class="section-desc">从资料检索到策略数据展示，呈现完整的移动端查询体验</p>
+      </div>
+      
+      <div class="features-showcase">
+        <div class="feature-tabs reveal">
+          <button class="feature-tab active" data-tab="homepage">
+            <span class="tab-icon">🏠</span>
+            <span>应用主页</span>
+          </button>
+          <button class="feature-tab" data-tab="teamRec">
+            <span class="tab-icon">📋</span>
+            <span>阵容推荐</span>
+          </button>
+          <button class="feature-tab" data-tab="heroDetail">
+            <span class="tab-icon">⚔</span>
+            <span>英雄详情</span>
+          </button>
+          <button class="feature-tab" data-tab="teamDetail">
+            <span class="tab-icon">🔍</span>
+            <span>阵容详情</span>
+          </button>
+          <button class="feature-tab" data-tab="equipTier">
+            <span class="tab-icon">🛡</span>
+            <span>装备评级</span>
+          </button>
+          <button class="feature-tab" data-tab="starGod">
+            <span class="tab-icon">📊</span>
+            <span>其他信息</span>
+          </button>
+        </div>
+        
+        <div class="feature-content reveal">
+          <div class="feature-phone">
+            <div class="phone-frame">
+              <img id="featureImage" src="assets/screenshot-homepage.jpg" alt="功能展示" class="feature-screen">
+            </div>
+          </div>
+          <div class="feature-info">
+            <div class="feature-badge">项目能力展示</div>
+            <h3 id="featureTitle">应用主页</h3>
+            <p id="featureDesc">
+              首页聚合资料检索、阵容推荐、英雄图鉴、装备查询、评级数据和运营速查等核心入口，并支持赛季数据切换，让用户可以从统一入口快速进入不同查询场景。
+            </p>
+            <ul class="feature-list">
+              <li class="feature-list-item">
+                <span class="check-icon">✓</span>
+                <span>多模块入口统一聚合</span>
+              </li>
+              <li class="feature-list-item">
+                <span class="check-icon">✓</span>
+                <span>赛季数据切换展示</span>
+              </li>
+              <li class="feature-list-item">
+                <span class="check-icon">✓</span>
+                <span>卡片式信息导航</span>
+              </li>
+              <li class="feature-list-item">
+                <span class="check-icon">✓</span>
+                <span>移动端深色界面适配</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. AI辅助开发流程 -->
+  <section class="workflow" id="workflow">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">开发流程</span>
+        <h2 class="section-title">AI 辅助开发，<span class="text-accent">从原型到可发布 APK</span></h2>
+        <p class="section-desc">通过需求拆解、数据建模、实机调试和持续迭代，完成移动端资料工具的产品化落地</p>
+      </div>
+      
+      <div class="workflow-steps">
+        <div class="workflow-step reveal">
+          <div class="step-number">01</div>
+          <div class="step-icon">🎯</div>
+          <h3>需求拆解</h3>
+          <p>从"资料难查、信息分散"的使用痛点出发，拆解出资料检索、分类筛选、详情展示、版本切换和移动端适配等核心模块，明确优先级与迭代方向。</p>
+          <div class="step-tags">
+            <span>需求分析</span>
+            <span>功能规划</span>
+            <span>迭代优先级</span>
+          </div>
+        </div>
+        <div class="workflow-step reveal">
+          <div class="step-number">02</div>
+          <div class="step-icon">📊</div>
+          <h3>数据建模</h3>
+          <p>整理来自网页与表格的资料，进行清洗、字段统一、图标匹配和别名映射，建立可本地查询的结构化数据，并处理不同版本之间的数据隔离。</p>
+          <div class="step-tags">
+            <span>数据清洗</span>
+            <span>结构化建库</span>
+            <span>别名映射</span>
+          </div>
+        </div>
+        <div class="workflow-step reveal">
+          <div class="step-number">03</div>
+          <div class="step-icon">🎨</div>
+          <h3>页面实现</h3>
+          <p>使用 AI 编程工具辅助完成页面开发和功能实现，搭建首页、检索、详情、评级、阵容等核心页面，并根据移动端使用场景设计信息层级。</p>
+          <div class="step-tags">
+            <span>前端实现</span>
+            <span>信息架构</span>
+            <span>移动端布局</span>
+          </div>
+        </div>
+        <div class="workflow-step reveal">
+          <div class="step-number">04</div>
+          <div class="step-icon">🔍</div>
+          <h3>实机调试</h3>
+          <p>通过手机实机截图持续发现并修正问题，反复优化标签换行、省略号、卡片高度、图标对齐、导航栏安全区和搜索结果排序等细节。</p>
+          <div class="step-tags">
+            <span>实机测试</span>
+            <span>UI 调优</span>
+            <span>问题定位</span>
+          </div>
+        </div>
+        <div class="workflow-step reveal">
+          <div class="step-number">05</div>
+          <div class="step-icon">🚀</div>
+          <h3>打包发布</h3>
+          <p>完成 Android APK 打包、版本命名、发布链接整理和 GitHub Release 分发，使项目从本地原型变成可安装、可下载、可展示的作品。</p>
+          <div class="step-tags">
+            <span>APK 打包</span>
+            <span>版本管理</span>
+            <span>发布分发</span>
+          </div>
+        </div>
+        <div class="workflow-arrow">→</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 项目版本迭代时间线 -->
+  <section class="timeline" id="timeline">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">版本迭代</span>
+        <h2 class="section-title">持续迭代，<span class="text-accent">不断进化</span></h2>
+        <p class="section-desc">从原型到发布，见证产品的成长轨迹</p>
+      </div>
+      
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content left">
+            <div class="timeline-version">V1</div>
+            <div class="timeline-date">基础资料库版</div>
+            <h4>离线资料查询起步</h4>
+            <ul>
+              <li>S16 英雄、羁绊、装备基础资料</li>
+              <li>阵容资料离线浏览</li>
+              <li>页面结构基础，以"能查到资料"为主</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content right">
+            <div class="timeline-version">V2</div>
+            <div class="timeline-date">搜索与详情增强版</div>
+            <h4>检索与信息展示升级</h4>
+            <ul>
+              <li>加入资料搜索与快速检索</li>
+              <li>英雄详情页、装备详情页、阵容详情页</li>
+              <li>补充图标、技能说明、羁绊、定位等完整信息</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content left">
+            <div class="timeline-version">V3</div>
+            <div class="timeline-date">多赛季扩展版</div>
+            <h4>赛季数据隔离支持</h4>
+            <ul>
+              <li>加入 S17 资料，赛季切换能力</li>
+              <li>英雄、羁绊、装备、阵容、符文按赛季隔离</li>
+              <li>解决不同赛季同名角色和装备混用问题</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content right">
+            <div class="timeline-version">V4</div>
+            <div class="timeline-date">策略数据扩展版</div>
+            <h4>从查资料到查策略</h4>
+            <ul>
+              <li>英雄推荐装备、装备评级、符文评级</li>
+              <li>星神评级、经济经验表、回合伤害表</li>
+              <li>APK 从基础资料扩展到实战参考数据</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item reveal">
+          <div class="timeline-dot current"></div>
+          <div class="timeline-content left">
+            <div class="timeline-version">V5</div>
+            <div class="timeline-date">移动端体验与发布版</div>
+            <h4>实机优化与正式发布 🎉</h4>
+            <ul>
+              <li>标签换行、图标对齐、卡片高度持续调优</li>
+              <li>底部导航安全区、搜索结果排序、详情页排版</li>
+              <li>APK 打包、GitHub Release 发布与分享</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. APK下载区域 -->
+  <section class="download" id="download">
+    <div class="container">
+      <div class="download-card reveal">
+        <div class="download-bg-glow"></div>
+        <div class="download-content">
+          <div class="download-badge">
+            <span class="badge-dot"></span>
+            v1.0.0 正式版
+          </div>
+          <h2 class="download-title">立即下载，<span class="text-accent">体验完整功能</span></h2>
+          <p class="download-desc">
+            支持 Android 7.0 及以上版本，安装包约 53MB
+          </p>
+          <div class="download-info">
+            <div class="info-item">
+              <span class="info-icon">📦</span>
+              <div>
+                <div class="info-label">安装包大小</div>
+                <div class="info-value">~53 MB</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">📱</span>
+              <div>
+                <div class="info-label">系统要求</div>
+                <div class="info-value">Android 7.0+</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">🔒</span>
+              <div>
+                <div class="info-label">安全认证</div>
+                <div class="info-value">纯净无广告</div>
+              </div>
+            </div>
+          </div>
+          <a href="https://github.com/cyarc12/jcc-database-apk/releases/download/v1.0.0/cydatatft.apk" 
+             class="btn btn-primary btn-large"
+             download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>下载 APK 安装包</span>
+          </a>
+          <p class="download-hint">
+            💡 首次安装可能需要允许"未知来源"应用安装权限
+          </p>
+        </div>
+        <div class="download-mockup">
+          <div class="phone-mockup large">
+            <img src="assets/screenshot-homepage.jpg" alt="应用预览" class="phone-screen">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系方式 -->
+  <section class="about" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">联系方式</span>
+        <h2 class="section-title">期待与您<span class="text-accent">交流合作</span></h2>
+        <p class="section-desc">共同创造有价值的产品</p>
+      </div>
+      
+      <div class="contact-single reveal">
+        <div class="contact-card">
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="contact-icon">📱</span>
+              <div>
+                <div class="contact-label">手机</div>
+                <div class="contact-value">18359179487</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <div>
+                <div class="contact-label">邮箱</div>
+                <div class="contact-value">1430629577@qq.com</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">🐙</span>
+              <div>
+                <div class="contact-label">GitHub</div>
+                <div class="contact-value">github.com/cyarc12</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-actions">
+            <a href="https://github.com/cyarc12/jcc-database-apk" target="_blank" class="btn btn-outline">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              查看源码
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">cydatatft</span>
+        </div>
+        <p class="footer-text">用 Vibe Coding 打造的 AI 原生开发作品</p>
+        <p class="footer-copyright">© 2026 cydatatft. Made with 💡 and AI.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
