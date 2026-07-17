@@ -120,26 +120,27 @@ body {
   background: var(--text-tertiary);
 }
 
-/* 手机模型内滚动条 */
+/* 手机模型内滚动条 - 始终可见 */
 .phone-mockup::-webkit-scrollbar,
 .phone-frame::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 
 .phone-mockup::-webkit-scrollbar-track,
 .phone-frame::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
 }
 
 .phone-mockup::-webkit-scrollbar-thumb,
 .phone-frame::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
 }
 
 .phone-mockup::-webkit-scrollbar-thumb:hover,
 .phone-frame::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* === 通用工具类 === */
@@ -534,10 +535,6 @@ section {
     0 30px 60px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(255, 255, 255, 0.05),
     inset 0 0 0 2px rgba(255, 255, 255, 0.05);
-  overflow: hidden;
-}
-
-.phone-mockup:hover {
   overflow-y: auto;
 }
 
@@ -781,10 +778,6 @@ section {
   box-shadow: 
     0 30px 60px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(255, 255, 255, 0.05);
-  overflow: hidden;
-}
-
-.phone-frame:hover {
   overflow-y: auto;
 }
 
