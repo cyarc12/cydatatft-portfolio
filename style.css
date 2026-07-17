@@ -1541,14 +1541,14 @@ section {
     background: var(--accent-gold-bg); border-color: var(--border-gold);
     color: var(--accent-gold-light);
   }
+  .mobile-feature-info {
+    text-align: center; padding: 0 4px; margin-bottom: 20px;
+  }
   .mobile-feature-phone {
-    display: flex; justify-content: center; margin-bottom: 20px;
+    display: flex; justify-content: center;
   }
   .mobile-feature-phone .phone-mockup {
     width: 260px; height: 540px;
-  }
-  .mobile-feature-info {
-    text-align: center; padding: 0 4px;
   }
   .mobile-feature-info h3 {
     font-size: 18px; margin-bottom: 8px;
