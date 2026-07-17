@@ -1395,6 +1395,11 @@ section {
     height: 540px;
   }
   
+  .phone-frame {
+    width: 260px;
+    height: 540px;
+  }
+  
   .nav-menu {
     position: fixed;
     top: var(--nav-height);
@@ -1483,6 +1488,10 @@ section {
     grid-template-columns: 1fr;
   }
   
+  .workflow-arrow {
+    display: none;
+  }
+  
   .floating-card {
     display: none;
   }
@@ -1501,6 +1510,10 @@ section {
 
 /* 手机适配 */
 @media (max-width: 480px) {
+  section {
+    padding: 60px 0;
+  }
+  
   .container {
     padding: 0 16px;
   }
@@ -1509,16 +1522,51 @@ section {
     padding: 0 16px;
   }
   
+  .section-header {
+    margin-bottom: 40px;
+  }
+  
+  .section-label {
+    font-size: 12px;
+    padding: 5px 14px;
+  }
+  
   .section-title {
+    font-size: 22px;
+  }
+  
+  .section-desc {
+    font-size: 14px;
+  }
+  
+  /* Hero */
+  .hero-title {
     font-size: 24px;
   }
   
-  .hero-title {
-    font-size: 28px;
+  .hero-subtitle {
+    font-size: 14px;
   }
   
-  .hero-subtitle {
-    font-size: 15px;
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .hero-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .hero-tag {
+    font-size: 12px;
+    padding: 6px 14px;
   }
   
   .btn {
@@ -1531,22 +1579,92 @@ section {
     font-size: 15px;
   }
   
+  /* Stats */
   .stat-card {
     padding: 24px 20px;
   }
   
-  .debug-card {
-    padding: 20px;
+  .stat-title {
+    font-size: 16px;
   }
   
-  .debug-title {
-    font-size: 18px;
+  .stat-desc {
+    font-size: 13px;
   }
   
-  .contact-card {
+  /* Feature tabs */
+  .feature-tabs {
+    gap: 6px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  
+  .feature-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .feature-tab {
+    padding: 8px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  .feature-info h3 {
+    font-size: 20px;
+  }
+  
+  .feature-info p {
+    font-size: 14px;
+  }
+  
+  .feature-list-item {
+    font-size: 14px;
+  }
+  
+  /* Workflow */
+  .workflow-step {
     padding: 24px;
   }
   
+  .workflow-step h3 {
+    font-size: 18px;
+  }
+  
+  .workflow-step p {
+    font-size: 14px;
+  }
+  
+  .step-tags span {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+  
+  /* Timeline */
+  .timeline-content {
+    padding: 20px;
+  }
+  
+  .timeline-version {
+    font-size: 18px;
+  }
+  
+  .timeline-date {
+    font-size: 12px;
+  }
+  
+  .timeline-content h4 {
+    font-size: 16px;
+  }
+  
+  .timeline-content li {
+    font-size: 13px;
+  }
+  
+  /* Download */
   .download-card {
     padding: 32px 20px;
     border-radius: var(--radius-lg);
@@ -1556,22 +1674,81 @@ section {
     font-size: 22px;
   }
   
-  .feature-tabs {
-    gap: 8px;
+  .download-desc {
+    font-size: 14px;
   }
   
-  .feature-tab {
-    padding: 8px 14px;
+  .download-note {
     font-size: 13px;
   }
   
+  /* Contact */
+  .contact-card {
+    padding: 24px 20px;
+  }
+  
+  .contact-item {
+    font-size: 14px;
+  }
+  
+  .contact-actions {
+    flex-direction: column;
+  }
+  
+  .contact-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 32px 0;
+  }
+  
+  .footer-logo {
+    font-size: 16px;
+  }
+  
+  .footer-text {
+    font-size: 13px;
+  }
+  
+  .footer-copyright {
+    font-size: 12px;
+  }
+  
+  /* Phone mockup */
   .phone-mockup {
     width: 240px;
     height: 500px;
+    border-radius: 32px;
+    padding: 10px;
   }
   
   .phone-frame {
     width: 240px;
     height: 500px;
+    border-radius: 32px;
+    padding: 10px;
+  }
+  
+  .phone-screen {
+    border-radius: 24px;
+  }
+  
+  .feature-screen {
+    border-radius: 24px;
+  }
+  
+  .phone-shine {
+    border-radius: 32px;
+  }
+  
+  /* Back to top */
+  .back-to-top {
+    bottom: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
   }
 }
