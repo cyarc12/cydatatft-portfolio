@@ -187,7 +187,7 @@
             <p id="featureDesc">
               首页聚合资料检索、阵容推荐、英雄图鉴、装备查询、评级数据和运营速查等核心入口，并支持赛季数据切换，让用户可以从统一入口快速进入不同查询场景。
             </p>
-            <ul class="feature-list">
+            <ul class="feature-list" id="featureList">
               <li class="feature-list-item">
                 <span class="check-icon">✓</span>
                 <span>多模块入口统一聚合</span>
@@ -205,6 +205,44 @@
                 <span>移动端深色界面适配</span>
               </li>
             </ul>
+          </div>
+        </div>
+        
+        <!-- 移动端：截图轮播 -->
+        <div class="screenshot-carousel" id="screenshotCarousel">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+              <img src="assets/screenshot-homepage.jpg" alt="应用主页" class="carousel-img">
+              <span class="carousel-label">应用主页</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/screenshot-team-rec.jpg" alt="阵容推荐" class="carousel-img">
+              <span class="carousel-label">阵容推荐</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/screenshot-hero-detail.jpg" alt="英雄详情" class="carousel-img">
+              <span class="carousel-label">英雄详情</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/screenshot-team-detail.jpg" alt="阵容详情" class="carousel-img">
+              <span class="carousel-label">阵容详情</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/screenshot-equip-tier.jpg" alt="装备评级" class="carousel-img">
+              <span class="carousel-label">装备评级</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/screenshot-star-god.jpg" alt="其他信息" class="carousel-img">
+              <span class="carousel-label">其他信息</span>
+            </div>
+          </div>
+          <div class="carousel-dots" id="carouselDots">
+            <span class="carousel-dot active"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
           </div>
         </div>
       </div>
@@ -494,6 +532,22 @@
       <polyline points="18 15 12 9 6 15"/>
     </svg>
   </button>
+
+  <!-- 移动端固定下载栏 -->
+  <div class="mobile-download-bar" id="mobileDownloadBar">
+    <div class="mobile-download-info">
+      <span class="mobile-download-version">Android · v1.0.0</span>
+    </div>
+    <a href="https://github.com/cyarc12/jcc-database-apk/releases/download/v1.0.0/cydatatft.apk" 
+       class="btn btn-primary mobile-download-btn" download>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      <span>下载 APK</span>
+    </a>
+  </div>
 
   <script src="script.js"></script>
 </body>

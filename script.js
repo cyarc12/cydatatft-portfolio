@@ -282,7 +282,100 @@
     });
   });
 
-  // === 7. 回到顶部 ===
+  // === 7. 移动端截图轮播 ===
+  const carouselTrack = document.getElementById('carouselTrack');
+  const carouselDots = document.querySelectorAll('.carousel-dot');
+  const carouselSlides = document.querySelectorAll('.carousel-slide');
+  let currentSlide = 0;
+  const totalSlides = carouselSlides.length;
+  const slideTabMap = ['homepage', 'teamRec', 'heroDetail', 'teamDetail', 'equipTier', 'starGod'];
+
+  function updateCarouselDots(index) {
+    carouselDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  function scrollToSlide(index) {
+    if (index < 0 || index >= totalSlides) return;
+    currentSlide = index;
+    const slide = carouselSlides[index];
+    if (slide && carouselTrack) {
+      carouselTrack.scrollTo({
+        left: slide.offsetLeft - carouselTrack.offsetLeft - (carouselTrack.clientWidth - slide.clientWidth) / 2,
+        behavior: 'smooth'
+      });
+    }
+    updateCarouselDots(index);
+  }
+
+  // 滑动结束后更新当前slide和dot
+  let scrollEndTimer;
+  if (carouselTrack) {
+    carouselTrack.addEventListener('scroll', function () {
+      clearTimeout(scrollEndTimer);
+      scrollEndTimer = setTimeout(() => {
+        const trackCenter = carouselTrack.scrollLeft + carouselTrack.clientWidth / 2;
+        let closest = 0;
+        let closestDist = Infinity;
+        carouselSlides.forEach((slide, i) => {
+          const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+          const dist = Math.abs(slideCenter - trackCenter);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closest = i;
+          }
+        });
+        currentSlide = closest;
+        updateCarouselDots(closest);
+      }, 100);
+    }, { passive: true });
+  }
+
+  // 圆点点击跳转
+  carouselDots.forEach((dot, i) => {
+    dot.addEventListener('click', () => scrollToSlide(i));
+  });
+
+  // 标签切换时同步轮播
+  const origSwitchFeature = switchFeature;
+  switchFeature = function (tabName) {
+    origSwitchFeature(tabName);
+    // 同步轮播
+    const slideIndex = slideTabMap.indexOf(tabName);
+    if (slideIndex >= 0) {
+      scrollToSlide(slideIndex);
+    }
+  };
+
+  // === 8. 移动端底部下载栏可见性 ===
+  const mobileDownloadBar = document.getElementById('mobileDownloadBar');
+  const downloadSection = document.getElementById('download');
+  
+  function toggleDownloadBar() {
+    if (!mobileDownloadBar || window.innerWidth > 768) {
+      if (mobileDownloadBar) mobileDownloadBar.style.display = 'none';
+      return;
+    }
+
+    if (!downloadSection) return;
+
+    const rect = downloadSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    // 下载区域进入视口时隐藏，离开时显示
+    if (rect.top < windowHeight && rect.bottom > 0) {
+      mobileDownloadBar.style.opacity = '0';
+      mobileDownloadBar.style.pointerEvents = 'none';
+      mobileDownloadBar.style.transform = 'translateY(20px)';
+    } else {
+      mobileDownloadBar.style.opacity = '1';
+      mobileDownloadBar.style.pointerEvents = 'auto';
+      mobileDownloadBar.style.transform = 'translateY(0)';
+    }
+  }
+
+  // === 9. 回到顶部 ===
   function scrollToTop() {
     window.scrollTo({
       top: 0,
@@ -353,6 +446,7 @@
       requestAnimationFrame(() => {
         handleNavbarScroll();
         highlightNav();
+        toggleDownloadBar();
         ticking = false;
       });
       ticking = true;
@@ -368,6 +462,7 @@
 
     // 初始执行一次
     handleNavbarScroll();
+    toggleDownloadBar();
     
     // 首屏元素立即显示
     const heroReveals = document.querySelectorAll('.hero .reveal');
